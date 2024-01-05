@@ -18,3 +18,5 @@ MonoBehaviour:
   - MainMenu
   - MainMenuBackground
   - SettingsMenu
+  - GameUI
+  - TutorialUI

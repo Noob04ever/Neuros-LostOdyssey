@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Core/Scene/MainMenu.unity
+    guid: 3850fef73eeca2f4b817bc1ff5f6be94
+  - enabled: 1
+    path: Assets/Core/Scene/TutorialLevel.unity
+    guid: 3f6abf06dd873584d9358b4bbc229a45
+  - enabled: 1
+    path: Assets/Core/Scene/TutorialCompletionMenu.unity
+    guid: 47cd98dbbcb513045bdd48ee53454b84
+  - enabled: 1
+    path: Assets/Core/Scene/SpowokyLevel.unity
+    guid: 221cbf22f32e8b24897429acf9a9c423
+  - enabled: 1
+    path: Assets/Core/Scene/SpowokyLevelCompleteMenu.unity
+    guid: 01b2b5738f270774b923dfa2e8cca78f
+  - enabled: 1
+    path: Assets/Core/Scene/MikuLevel.unity
+    guid: aeb4892abade4dd4a9b14b0de1ed667d
+  - enabled: 1
+    path: Assets/Core/Scene/MikuLevelCompletionMenu.unity
+    guid: 4b7e48195d403e14782c0790617d8381
   m_configObjects: {}

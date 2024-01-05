@@ -44,22 +44,31 @@ MonoBehaviour:
   - {fileID: -2387490035797275983, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
   - {fileID: 5013398945957579226, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
   - {fileID: -1128326133675221290, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: 7977296868406419160, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: -5643185487242089815, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: -7440779598249317491, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: 8565133038705623413, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: 8429052679311793942, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: 2836539151465669250, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: -4991618932800011106, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: 9104336530858457064, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
+  - {fileID: -1882901200591288719, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
   SelectedNodes: []
   GraphTabs:
   - IsRootTab: 1
     Graph: {fileID: 11400000, guid: a69ed24bde006fd41a52b4a954084a66, type: 2}
     SubGraphNode: {fileID: 0}
-    Zoom: 1.1
-    PanOffset: {x: 167.97093, y: 112.381966}
+    Zoom: 2
+    PanOffset: {x: -852.65643, y: 362.22552}
     SelectedNodes: []
     DeletedNodes: []
   CurrentView: 1
-  CurrentPanOffset: {x: 103.97093, y: 123.38196}
+  CurrentPanOffset: {x: 320.2281, y: 211.26596}
   DefaultPanOffset: {x: 0, y: 0}
   IsDirty: 0
   SaveCurrentGraphWithControlS: 1
   CurrentDotAnimationSpeed: 0.6
-  CurrentZoom: 1.1
+  CurrentZoom: 0.6
   DefaultDotAnimationSpeed: 0.6
   DefaultZoom: 1
   ShowNodeNotes: 1

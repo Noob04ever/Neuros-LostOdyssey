@@ -135,6 +135,27 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
             OnSongPlay?.Invoke();
         }
 
+        public void PlayAttachedAudio()
+        {
+            PlaySong(m_PlayableDirector.playableAsset as RhythmTimelineAsset);
+        }
+
+        public void SetSongTime(float modifiedTime)
+        {
+            RefreshBpm();
+
+            SetupTrackBindings();
+
+            // rebuild for runtime playing
+            m_PlayableDirector.RebuildGraph();
+            m_PlayableDirector.time = modifiedTime;
+            m_PlayableDirector.Play();
+            m_DspSongStartTime = DspTime.AdaptiveTime;
+            m_IsPlaying = true;
+
+            OnSongPlay?.Invoke();
+        }
+
         protected virtual void SetupTrackBindings()
         {
             var outputTracks = m_SongTimelineAsset.GetOutputTracks();

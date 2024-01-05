@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [SerializeField] private Canvas MainMenuCanvas;
 
     [Header("Audio Mixer")]
     [Space]
@@ -16,6 +19,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider MasterSlider;
     [SerializeField] private Slider MusicSlider;
     [SerializeField] private Slider SoundsSlider;
+
+
+    public float CompletedScore;
+    public string CompletedRank;
+    public int currentLevelIndex = 0;
 
     private void Awake()
     {
@@ -51,7 +59,7 @@ public class GameManager : MonoBehaviour
     public void UpdateMusicVolumeSettings()
     {
         float MusicVolume = MusicSlider.value;
-        MixerController.SetFloat("MusicVolume", 10 + Mathf.Log10(MusicVolume) * 20);
+        MixerController.SetFloat("MusicVolume", Mathf.Log10(MusicVolume) * 20);
         // Update Player Preference Save File
         PlayerPrefs.SetFloat("MusicVolume", MusicVolume);
     }
@@ -59,7 +67,7 @@ public class GameManager : MonoBehaviour
     public void UpdateSoundsVolumeSettings()
     {
         float SoundsVolume = SoundsSlider.value;
-        MixerController.SetFloat("SoundsVolume", 10 + Mathf.Log10(SoundsVolume) * 20);
+        MixerController.SetFloat("SoundsVolume", Mathf.Log10(SoundsVolume) * 20);
         PlayerPrefs.SetFloat("SoundsVolume", SoundsVolume);
     }
 
@@ -74,5 +82,24 @@ public class GameManager : MonoBehaviour
         
         SoundsSlider.value = PlayerPrefs.GetFloat("SoundsVolume");
         UpdateSoundsVolumeSettings();
+    }
+
+    public void LoadLevel(int LevelIndex)
+    {
+        currentLevelIndex = LevelIndex;
+        SceneManager.LoadScene(LevelIndex);
+
+    }
+
+    public void MainMenuCanvasCheck()
+    {
+        if (currentLevelIndex == 0)
+        {
+            MainMenuCanvas.enabled = true;
+        }
+        else
+        {
+            MainMenuCanvas.enabled = false;
+        }
     }
 }
