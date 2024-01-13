@@ -10,6 +10,7 @@ public class TutorialController : MonoBehaviour
 {
     // probalay can make parnt inheritaance for beter structure but...
     [SerializeField] private RhythmDirector TutorialRhythmDirector;
+    [SerializeField] private ScoreManager TutorialScoreManager;
     [Space]
     [SerializeField] private GameObject TimerCanvas;
     [SerializeField] private TextMeshProUGUI TimerText;
@@ -34,9 +35,9 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.FindSoundManager();
         StartCoroutine("StartCountdown");
         TutorialRhythmDirector.OnSongEnd += OnSongEnd;
-        GameManager.Instance.MainMenuCanvasCheck();
     }
 
 
@@ -49,6 +50,7 @@ public class TutorialController : MonoBehaviour
 
     private IEnumerator StartCountdown()
     {
+        Debug.Log("Start Countdown Called");
         yield return new WaitForSeconds(2.0f);
         // Set Start Text and Voice Countdown
         TimerCanvas.SetActive(true);
@@ -101,9 +103,26 @@ public class TutorialController : MonoBehaviour
 
     private IEnumerator CompleteLevel()
     {
-        GameManager.Instance.CompletedScore = ScoreManager.Instance.GetScore();
-        GameManager.Instance.CompletedRank = ScoreManager.Instance.GetRank().name;
+        GameManager.Instance.CompletedScore = TutorialScoreManager.GetScore();
+        GameManager.Instance.CompletedRank = TutorialScoreManager.GetRank().name;
         yield return new WaitForSeconds(1.0f);
         GameManager.Instance.LoadLevel(2);
+    }
+
+    public void QuitMidSong()
+    {
+        StopAllCoroutines();
+        StartCoroutine("QuitMidSongCoroutine");
+    }
+
+    private IEnumerator QuitMidSongCoroutine()
+    {
+        Debug.Log("QuitMidSong Called!");
+        GameUICanvas.SetActive(false);
+        FadeAnimator.SetTrigger("FadeOut");
+        TutorialRhythmDirector.EndSong();
+        Time.timeScale = 1.0f;
+        yield return new WaitForSeconds(1.0f);
+        GameManager.Instance.LoadLevel(0);
     }
 }

@@ -485,7 +485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4260277206901223838}
-  - component: {fileID: 3228542699953676416}
+  - component: {fileID: 7091945282947735741}
   m_Layer: 0
   m_Name: Neuro Counter Note
   m_TagString: Untagged
@@ -510,7 +510,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3228542699953676416
+--- !u!114 &7091945282947735741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6700462440123941034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649f1468c6f64d82bbac4d0f8f7f0e1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 978ecd0c642602e489e3584827549afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UpdateWithTimeline: 1
@@ -527,6 +527,7 @@ MonoBehaviour:
   m_OrientToTrack: 1
   m_SetActiveWhileClipActive: {fileID: 8232355356632302312}
   m_CounterText: {fileID: 3975350657463399406}
+  CounterDecreaseAudio: {fileID: 8300000, guid: 66fa2e3c5113c734fa9267e09469ade2, type: 3}
 --- !u!1 &7672968406352099491
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +771,7 @@ PrefabInstance:
     - target: {fileID: 4318689219085293495, guid: f23340a29a852df4f88a496427906c96, type: 3}
       propertyPath: m_Note
       value: 
-      objectReference: {fileID: 3228542699953676416}
+      objectReference: {fileID: 0}
     - target: {fileID: 6631466877207219010, guid: f23340a29a852df4f88a496427906c96, type: 3}
       propertyPath: m_SpawnPosition
       value: 

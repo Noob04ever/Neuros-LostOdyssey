@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EndNote: {fileID: 390540688947539087}
   m_LineRenderer: {fileID: 1587133033315448136}
   m_ActiveLineColor: {r: 0.9647059, g: 0.60784316, b: 0.25490198, a: 1}
-  m_AutoPerfectRelease: 0
+  m_AutoPerfectRelease: 1
   m_RemoveNoteIfMissed: 1
 --- !u!1 &2367465758212223605
 GameObject:

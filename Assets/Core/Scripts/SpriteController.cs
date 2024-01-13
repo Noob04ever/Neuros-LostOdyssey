@@ -11,7 +11,8 @@ public class SpriteController : MonoBehaviour
     [SerializeField] private Transform DownPosition;
     private bool JDown = false;
     private bool KDown = false;
-    private bool bAnyButtonHold = false;
+    private bool HoldingJ = false;
+    private bool HoldingK = false;
     bool bIsFalling = false;
     [SerializeField] private float FallSpeed = 8.0f;
 
@@ -42,6 +43,23 @@ public class SpriteController : MonoBehaviour
 
     private void SetSpritePositionAndAnimation()
     {
+        // If held J button are let go
+        if(!JDown)
+        {
+            HoldingJ = false;
+            StopCoroutine("IsHoldingJ");
+            animator.SetBool("bIsHoldingJ", false);
+        }
+        
+        // If Held K Button are let go
+        if(!KDown)
+        {
+            HoldingK = false;
+            StopCoroutine("IsHoldingK");
+            animator.SetBool("bIsHoldingK", false);
+        }
+
+        // Handle when button are pressed
         if(JDown && KDown)
         {
             StartCoroutine("StartFalling");
@@ -54,15 +72,37 @@ public class SpriteController : MonoBehaviour
             StopCoroutine("StartFalling");
             bIsFalling = false;
             transform.position = DownPosition.position;
-            animator.SetTrigger("Slash");
+            if(!HoldingJ)
+            {
+                animator.CrossFade("NeuroDownwardSlash", 0.05f, -1, 0.05f);
+            }
+            StartCoroutine("IsHoldingJ");
         }
         else if (KDown)
         {
             bIsFalling = false;
             StartCoroutine("StartFalling");
             transform.position = UpPosition.position;
-            animator.SetTrigger("Stab");
+            if(!HoldingK)
+            {
+                animator.CrossFade("NeuroStab", 0.05f, -1, 0.05f);
+            }
+            StartCoroutine("IsHoldingK");
         }
+    }
+
+    private IEnumerator IsHoldingJ()
+    {
+        yield return new WaitForSeconds(0.1f);
+        HoldingJ = true;
+        animator.SetBool("bIsHoldingJ", true);
+    }
+
+    private IEnumerator IsHoldingK()
+    {
+        yield return new WaitForSeconds(0.1f);
+        HoldingK = true;
+        animator.SetBool("bIsHoldingK", true);
     }
 
     private IEnumerator StartFalling()
